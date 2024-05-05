@@ -1,5 +1,5 @@
 asyncpg
 python-dotenv
-discord.py
+discord
 pytz
 requests
