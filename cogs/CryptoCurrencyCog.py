@@ -1,15 +1,11 @@
 import math
-
-from pycoingecko import CoinGeckoAPI
 import discord
 from discord import app_commands
 from discord.ext import commands
-import asyncio
 from Bot.time_utils import get_time
 from Bot.db_utils import ids
 from main import MyBot
 import requests
-import json
 import locale
 
 

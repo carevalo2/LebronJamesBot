@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv
 # Replace 'database_url' with your actual PostgreSQL database URL
 load_dotenv()
-ids = os.getenv('guild_id')
+ids = int(os.getenv('guild_id'))
 DATABASE_URL = f"postgres://postgres:{os.getenv('db_password')}@localhost:5432/DiscordBot"
 
 
