@@ -1,0 +1,6 @@
+asyncpg
+python-dotenv
+discord.py
+pytz
+requests
+pycoingecko
