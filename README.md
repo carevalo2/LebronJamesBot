@@ -7,7 +7,7 @@ This bot uses asyncpg, an async wrapper for PostgreSQL.
 
 1. You need to create a .env file in the directory under LebronJamesBot.
 
-You need to set three secrets:
+You need to set four secrets:
 discord_token (your bot's discord token)
 database_password (your database password, postgresql)
 DATABASE_URL (the url to your database, use pgadmin if you don't know it)
