@@ -1,13 +1,12 @@
 
 import discord
-from discord import  ui
+from discord import ui
 
 import traceback
 import logging
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
-
 class HistoryView(ui.View):
     def __init__(self, embeds, author):
         super().__init__()
@@ -17,10 +16,22 @@ class HistoryView(ui.View):
         self.max_page = len(embeds) - 1
 
         # Define the navigation buttons
-        self.previous_button = ui.Button(label='⬅️', style=discord.ButtonStyle.primary, custom_id='previous_button')
-        self.next_button = ui.Button(label='➡️', style=discord.ButtonStyle.primary, custom_id='next_button')
-        self.page_indicator = ui.Button(label=f'Page {self.current_page + 1}/{self.max_page + 1}', style=discord.ButtonStyle.secondary, disabled=True)
-        self.stop_button = ui.Button(label='⏹️', style=discord.ButtonStyle.danger, custom_id='stop_button')
+        self.previous_button = ui.Button(
+            label='⬅️',
+            style=discord.ButtonStyle.primary,
+            custom_id='previous_button')
+        self.next_button = ui.Button(
+            label='➡️',
+            style=discord.ButtonStyle.primary, 
+            custom_id='next_button')
+        self.page_indicator = ui.Button(
+            label=f'Page {self.current_page + 1}/{self.max_page + 1}',
+            style=discord.ButtonStyle.secondary,
+            disabled=True)
+        self.stop_button = ui.Button(
+            label='⏹️',
+            style=discord.ButtonStyle.danger,
+            custom_id='stop_button')
 
         self.previous_button.callback = self.previous_button_callback
         self.next_button.callback = self.next_button_callback
@@ -71,7 +82,10 @@ class HistoryView(ui.View):
 
     async def stop_button_callback(self, interaction: discord.Interaction):
         try:
-            stopped_embed = discord.Embed(title="Command History", description="The command history view has been stopped.", color=0x00ff00)
+            stopped_embed = discord.Embed(
+                title="Command History",
+                description="The command history view has been stopped.",
+                color=0x00ff00)
             for item in self.children:
                 item.disabled = True
             await interaction.response.defer()

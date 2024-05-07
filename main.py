@@ -6,6 +6,7 @@ import asyncpg
 import asyncio
 from dotenv import load_dotenv
 
+
 class MyBot(commands.Bot):
     def __init__(self):
         intents = discord.Intents.all()

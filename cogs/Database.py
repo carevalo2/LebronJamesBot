@@ -2,7 +2,7 @@
 import discord
 from discord import app_commands
 from discord.ext import commands
-from Bot.time_utils import get_time_formatted
+from Bot.time_utils import get_time_formatted, get_time
 from Bot.db_utils import add_guild_id, remove_guild_id, ids
 from main import MyBot
 from HistoryView import HistoryView

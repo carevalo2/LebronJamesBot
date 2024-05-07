@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv
 # Replace 'database_url' with your actual PostgreSQL database URL
 load_dotenv()
-ids = 1189432268817715291
+ids = int(os.getenv('guild_id'))
 DATABASE_URL = f"postgres://postgres:{os.getenv('db_password')}@localhost:5432/DiscordBot"
 
 
@@ -20,7 +20,7 @@ async def add_guild_id(guild_id, guild_name, added_by, added_at_time):
     conn = await asyncpg.connect(DATABASE_URL)
     try:
         await conn.execute("""
-            INSERT INTO guilds (guild_number, guild_id, guild_name, added_by, added_at_time)
+            INSERT INTO guilds (guild_id, guild_name, added_by, added_at_time)
             VALUES ($1, $2, $3, $4)
         """, guild_id, guild_name, added_by, added_at_time)
     except asyncpg.PostgresError as e:
